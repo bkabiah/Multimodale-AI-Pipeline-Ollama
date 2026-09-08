@@ -16,29 +16,35 @@ Die Architektur wurde bewusst für den Betrieb auf ressourcenbeschränkten **CPU
 - **Infrastruktur & Orchestrierung (Docker):** Die gesamte Anwendung ist in Docker containerisiert. Dies garantiert eine 100% reproduzierbare Bereitstellung, isoliert Abhängigkeiten (wie `poppler-utils` für die PDF-zu-Bild-Konvertierung) und macht das Projekt sofort auf jedem Cloud-Provider deploybar.
 
 ---
-
 ## 📊 Systemarchitektur-Diagramm
-
-*(Dieses Diagramm wird von GitHub automatisch gerendert)*
 
 ```mermaid
 graph TD
-    A[👤 Client / Frontend] -->|POST /process/ (PDF)| B(FastAPI Server)
+    A[Client / Frontend] -->|"POST /process/ (PDF)"| B[FastAPI Server]
     
-    subgraph "🛡️ VPS / Docker Environment"
-        B -->|1. Upload Raw PDF| C[(☁️ AWS S3 Bucket)]
-        B -->|2. PDF zu Bild| D[🖼️ pdf2image / Pillow]
-        D -->|3. Base64 Image| E((🧠 Ollama: Moondream 1.6B))
-        E -->|4. Raw JSON Output| F{⚙️ Pydantic Validator}
-        F -->|5. Validiertes Schema| G[🔌 MCP Server]
+    subgraph VPS / Docker Environment
+        B -->|"1. Upload Raw PDF"| C[(AWS S3 Bucket)]
+        B -->|"2. PDF to Image"| D[pdf2image / Pillow]
+        D -->|"3. Base64 Image"| E((Ollama: Moondream 1.6B))
+        E -->|"4. Raw JSON Output"| F{Pydantic Validator}
+        F -->|"5. Validated Schema"| G[MCP Server]
     end
     
-    G -->|6. INSERT / UPSERT| H[(🗄️ PostgreSQL / Supabase)]
+    G -->|"6. INSERT / UPSERT"| H[(PostgreSQL / Supabase)]
     
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style E fill:#ff9,stroke:#333,stroke-width:2px
     style F fill:#9f9,stroke:#333,stroke-width:2px
     style H fill:#99f,stroke:#333,stroke-width:2px
+
+
+
+
+
+
+
+
+
 ✨ Key Features
 🛡️ Privacy-First: Keine Dokumentendaten verlassen den Server. Die KI-Inferenz läuft zu 100% lokal.
 🧠 Hardware-Optimized: Speziell für CPU-Umgebungen mit begrenztem RAM (<8GB) konfiguriert (Anti-Loop-Penalties, Image-Downscaling).
