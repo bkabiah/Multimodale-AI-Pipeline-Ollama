@@ -1,0 +1,93 @@
+# ==========================================
+# 1. SENSIBLE DATEN & SECRETS (WICHTIG!)
+# ==========================================
+.env
+.env.local
+.env.*
+!.env.example
+
+# ==========================================
+# 2. PYTHON & VIRTUELLE UMGEBUNGEN
+# ==========================================
+# Virtuelle Umgebungen
+venv/
+.venv/
+env/
+ENV/
+
+# Byte-kompilierte Dateien & Caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / Packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==========================================
+# 3. TESTING & COVERAGE
+# ==========================================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# ==========================================
+# 4. PROJEKT-SPEZIFISCHE DATEIEN
+# ==========================================
+# Lokale Logs
+*.log
+server.log
+ollama_host.log
+
+# Hochgeladene oder generierte Dokumente (nicht ins Repo!)
+data/
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.tmp
+
+# ==========================================
+# 5. DOCKER & CONTAINER
+# ==========================================
+# Docker Compose Override (lokal, nicht für Repo)
+docker-compose.override.yml
+
+# ==========================================
+# 6. IDEs & BETRIEBSSYSTEM
+# ==========================================
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains / PyCharm
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.env
