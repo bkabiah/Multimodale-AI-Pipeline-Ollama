@@ -1,8 +1,6 @@
-# 📄 E-Commerce Multimodal Contract & Invoice Pipeline
+# 📄 E-Commerce Multimodale Verträgen & Rechnungen Pipeline
 
 Eine robuste, Privacy-First End-to-End-Pipeline zur automatischen Extraktion und Strukturierung von E-Commerce-Dokumenten (Verträge, Rechnungen, Lieferscheine). Das Projekt wandelt gescannte PDFs in strukturierte JSON-Daten um, archiviert die Originale in der Cloud und speichert die Metadaten sicher in einer Datenbank.
-
-Entwickelt als Portfolio-Piece, um **Hardware-aware AI Engineering**, robuste Fehlerbehandlung und moderne Backend-Architekturen im DACH-Raum zu demonstrieren.
 
 ---
 
@@ -41,8 +39,12 @@ graph TD
 
 
 
-✨ Key Features
-🛡️ Privacy-First: Keine Dokumentendaten verlassen den Server. Die KI-Inferenz läuft zu 100% lokal.
-🧠 Hardware-Optimized: Speziell für CPU-Umgebungen mit begrenztem RAM (<8GB) konfiguriert (Anti-Loop-Penalties, Image-Downscaling).
-🛡️ Robust Error Handling: Die Pipeline fängt KI-Halluzinationen, Timeouts und Formatierungsfehler ab, ohne den gesamten Prozess abzustürzen.
-📦 Plugin-Architektur: S3-Upload und Datenbank-Speicherung sind als austauschbare Plugins (MCP) implementiert.
+## Key Features
+
+- Privacy-First: Keine Dokumentendaten verlassen den Server. Die KI-Inferenz läuft zu 100% lokal.
+
+- Hardware-Optimized: Speziell für CPU-Umgebungen mit begrenztem RAM (<8GB) konfiguriert (Anti-Loop-Penalties, Image-Downscaling).
+
+- Robust Error Handling: Die Pipeline fängt KI-Halluzinationen, Timeouts und Formatierungsfehler ab, ohne den gesamten Prozess abzustürzen.
+
+- Plugin-Architektur: S3-Upload und Datenbank-Speicherung sind als austauschbare Plugins (MCP) implementiert.
